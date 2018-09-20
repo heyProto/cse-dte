@@ -119,15 +119,26 @@ class App extends React.Component {
   }
 
   createObj(group, param, keyValue){
-    let obj = {},
-      arr1 = [];
+    let obj = {};
 
     for (let i=0; i<keyValue.length; i++){
-      if (group[keyValue[i]] === undefined){
-        obj[keyValue[i]] = []
-      } else {
-        obj[keyValue[i]] = group[keyValue[i]]
+      let currentKey = keyValue[i];
+      if(param === "date") {
+        currentKey = new Date(currentKey).getFullYear();
       }
+        if (!obj[currentKey]) {
+          obj[currentKey] = [];
+        }
+        
+        if(group[keyValue[i]]) { 
+          obj[currentKey].push(...group[keyValue[i]]); 
+        }
+      //  else {
+      //   if (group[currentKey] === undefined){
+      //             obj[keyValue[i]] = []
+      //           } else {
+      //             obj[keyValue[i]] = group[keyValue[i]]
+      // }
     }
     // console.log(obj, "object")
     return obj;
@@ -189,11 +200,12 @@ class App extends React.Component {
         });
       }
     }
-    na = arr.findIndex(x => x.name === "Unknown" )
-    nai = arr.splice(na,1);
-    if (filter.propName === 'petition_filing_year') { //sort by year
+    na = arr.findIndex(x => x.name === "Unknown" );
+    if(na >= 0)
+      nai = arr.splice(na,1);
+    if (filter.propName === 'date') { //sort by year
       	arr.sort((a,b) => {
-	        return parseInt(b).value - parseInt(a).value
+	        return parseInt(b.value) - parseInt(a.value);
       	});
     }
     else {	//sort by count
@@ -203,7 +215,8 @@ class App extends React.Component {
 		      return key2 - key1;
     	});
     }
-    arr.push(nai[0])
+    if(na >= 0)
+      arr.push(nai[0]);
     return arr; // returns array
   }
 

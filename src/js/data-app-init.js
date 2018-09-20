@@ -27,8 +27,8 @@ ProtoGraph.initDataApp = function () {
                 "propName": "subject"
             },
             {
-                "alias": "Petition filing year",
-                "propName": "petition_filing_year"
+                "alias": "Latest activity",
+                "propName": "date"
             },
             {
                 "alias": "Location",

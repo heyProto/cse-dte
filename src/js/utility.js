@@ -22,8 +22,9 @@ function highlightCircle(name, data) {
 }
 
 function formatDate(date) {
-    let parseTime = timeFormat("%B '%Y");
-    return parseTime(new Date(date));
+    //let parseTime = timeFormat("%B, %Y");
+    //return parseTime(new Date(date));
+    return (new Date(date)).toLocaleDateString("en-US", {year: 'numeric', month: 'short', day: 'numeric'});
 }
 
 function groupBy(data, column) {

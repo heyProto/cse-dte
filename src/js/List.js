@@ -1,4 +1,7 @@
 import React from 'react';
+import { formatDate } from './utility';
+
+import '../css/List.css';
 
 class ListCards extends React.Component {
 
@@ -30,6 +33,15 @@ class ListCards extends React.Component {
     })
   }
 
+  getCardStatus(card) {
+    switch(card.status) {
+      case "Cancelled": return "proto-card-status-cancel";
+      case "Ongoing": return "proto-card-status-ongoing";
+      case "Done": return "proto-card-status-done";
+      default: return "proto-card-status-none";
+    }
+  }
+
   render() {
       if (this.props.dataJSON.length === 0) {
       return(<h2>No cards to display</h2>)
@@ -45,7 +57,8 @@ class ListCards extends React.Component {
               data-iframe_url={card.iframe_url}
               >
               <div className="proto-card-content" >
-                <div className="proto-card-date">{card.petition_filing_year? card.petition_filing_year : "Year: Unknown"}</div>
+                <div className="proto-card-date">{card.date? formatDate(card.date) : "Date: Unknown"}</div>
+                <div className="proto-card-status"><div className={`proto-card-status-button ${this.getCardStatus(card)}`} /></div>
                 <div className="proto-card-location">{card.title}</div>
                 <div className="proto-context-div">
                   <div className="proto-context-title">SUBJECT</div>

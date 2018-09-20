@@ -324,7 +324,9 @@ export default class Filter extends React.Component {
       filters;
 
     for (let i = 1; i < parent_ids.length - 1; i++) {
-      data = data[activeTabJSON.filters[parent_ids[i]].key]
+      let key = activeTabJSON.filters[parent_ids[i]].key;
+      data = key === "date"? new Date(data[key]).getFullYear().toString() : data[key];
+    
       // console.log(data, "data in filters")
       activeTabJSON = activeTabJSON.filters[parent_ids[i]];
     }

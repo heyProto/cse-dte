@@ -1,0 +1,28 @@
+.proto-card-date {
+    display: inline-block;
+}
+
+.proto-card-status {
+    margin: 5px;
+    float: right;
+    height: 20px;
+}
+
+.proto-card-status-button {
+    height: 18px;
+    width: 18px;
+    border-radius: 9px;
+}
+
+.proto-card-status .proto-card-status-cancelled {
+    background-color: red;
+}
+.proto-card-status .proto-card-status-ongoing {
+    background-color: orange;
+}
+.proto-card-status .proto-card-status-done {
+    background-color: limegreen;
+}
+.proto-card-status .proto-card-status-none {
+    background-color: black;
+}
