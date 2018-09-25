@@ -2,10 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import { RiseLoader } from 'halogenium';
 import List from './List.js';
-import Map from './Map.js';
 import Utils from './utility.js';
 import Filter from "./filter.js";
 import Modal from "./Modal.js";
+import {getCardStatus} from './manipulation';
 
 class App extends React.Component {
   constructor(props) {
@@ -43,6 +43,7 @@ class App extends React.Component {
           groupBy;
 
         data = card.data;
+        data.sort((x,y) => new Date(y.date) - new Date(x.date));
         data.forEach((e,i) => { e.u_id = (i+1) });
 
         filters = this.state.filters.map((filter) => {
@@ -118,6 +119,7 @@ class App extends React.Component {
     return arr_of_values;
   }
 
+
   createObj(group, param, keyValue){
     let obj = {};
 
@@ -125,6 +127,8 @@ class App extends React.Component {
       let currentKey = keyValue[i];
       if(param === "date") {
         currentKey = new Date(currentKey).getFullYear();
+      } else if(param === "case_status") {
+        currentKey = getCardStatus(currentKey, "Unknown");
       }
         if (!obj[currentKey]) {
           obj[currentKey] = [];

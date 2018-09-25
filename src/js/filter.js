@@ -1,5 +1,6 @@
 import React from 'react';
 import {groupBy} from './utility.js';
+import {getCardStatus} from './manipulation';
 
 export default class Filter extends React.Component {
 
@@ -312,6 +313,8 @@ export default class Filter extends React.Component {
       filteredData = this.state.dataJSON;
     }
 
+    filteredData.sort((x,y) => new Date(y.date) - new Date(x.date));
+
     this.setState({
       filteredData: filteredData
     }, this.onChange);
@@ -325,7 +328,9 @@ export default class Filter extends React.Component {
 
     for (let i = 1; i < parent_ids.length - 1; i++) {
       let key = activeTabJSON.filters[parent_ids[i]].key;
-      data = key === "date"? new Date(data[key]).getFullYear().toString() : data[key];
+      data = key === "date"? new Date(data[key]).getFullYear().toString() 
+            : key ==="case_status"? getCardStatus(data[key]) 
+            : data[key];
     
       // console.log(data, "data in filters")
       activeTabJSON = activeTabJSON.filters[parent_ids[i]];

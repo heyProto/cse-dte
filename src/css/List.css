@@ -95,7 +95,7 @@
 
 .proto-card-date {
     display: inline-block;
-    line-height: 24px;
+    margin-top: 8px;
 }
 
 .proto-card-status {
@@ -105,7 +105,7 @@
     width: 16px;
 }
 
-.proto-card-tag .proto-card-status-cancelled {
+.proto-card-tag .proto-card-status-cancel {
     background-color: red;
 }
 .proto-card-tag .proto-card-status-ongoing {

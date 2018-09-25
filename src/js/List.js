@@ -1,5 +1,6 @@
 import React from 'react';
 import { formatDate } from './utility';
+import {getCardStatus} from './manipulation';
 
 import '../css/List.css';
 
@@ -33,7 +34,7 @@ class ListCards extends React.Component {
     })
   }
 
-  getCardStatus(status) {
+  getCardStatusClass(status) {
     switch(status) {
       case "Cancelled": return "proto-card-status-cancel";
       case "Ongoing": return "proto-card-status-ongoing";
@@ -58,7 +59,7 @@ class ListCards extends React.Component {
               >
               <div className="proto-card-content" >
                 <div className="proto-card-tag">
-                <div className={`proto-card-status ${this.getCardStatus(card.status)}`} />
+                <div className={`proto-card-status ${this.getCardStatusClass(getCardStatus(card.case_status))}`} />
                   <div className="proto-card-date">{card.date? formatDate(card.date) : "Date: Unknown"}</div>
                 </div>
                 <div className="proto-card-title">{card.title.length <= 150? card.title : card.title.replace(/^(.{150}[^\s]*).*/, "$1 ...")}</div>
