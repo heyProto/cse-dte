@@ -5,8 +5,8 @@ ProtoGraph.initDataApp = function () {
 
     x.init({
         selector: document.querySelector('#card-list-div'),
-        dataURL: streams.Grid.url,//'https://dte.pro.to/71c94a440fefda7b48778f70/index.json',
-        topoURL: 'https://p.factchecker.in/data/india-topo.json',//'./india-topo.json',
+        dataURL: 'https://dte.pro.to/71c94a440fefda7b48778f70/index.json',//streams.Grid.url,//
+        topoURL: './india-topo.json',//'https://p.factchecker.in/data/india-topo.json',//
         chartOptions: {
             height: 700,
             defaultCircleColor: ProtoGraph.site['house_colour']

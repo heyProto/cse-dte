@@ -56,7 +56,7 @@ class Modal extends React.Component {
         >
           <div className="protograph-close-text"><i className="remove icon"></i></div>
         </div>
-        <div id="protograph_modal_card"></div>
+        <div id="protograph_modal_card" style={{height:580}}></div>
       </ReactModal>
     )
   }

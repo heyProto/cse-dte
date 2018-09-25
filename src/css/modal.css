@@ -2,10 +2,14 @@ body{
 	padding: 50px;
 }
 
+.modal-conatiner {
+	height: 580px;
+}
+
 .proto-modal{
 	background: #fafafa;
 	border-radius: 4px;
-	height: 430px;
+	height: auto;
 	overflow: hidden;
 	padding: 12px;
 	font-family: "cabin";

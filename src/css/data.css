@@ -774,7 +774,6 @@
   }
   .protograph-modal {
     left: 0%;
-    width: 100vw;
     margin-bottom: 10%;
   }
   .protograph-map-legends-container {
@@ -865,10 +864,5 @@
 
   .news-card-mobile {
       width: 100vw;
-  }
-
-  .protograph-close-modal {
-    top: 20px;
-    right: 15px;
   }
 }
