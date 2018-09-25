@@ -27,7 +27,7 @@ ProtoGraph.initDataApp = function () {
                 "propName": "subject"
             },
             {
-                "alias": "Latest activity",
+                "alias": "Latest Activity",
                 "propName": "date"
             },
             {
@@ -35,19 +35,19 @@ ProtoGraph.initDataApp = function () {
                 "propName": "location"
             },            
             {
-                "alias": "Court involved",
+                "alias": "Court Involved",
                 "propName": "court_involved"
             },
             {
-                "alias": "Petitioner type",
+                "alias": "Type Of Petitioner",
                 "propName": "petition_type"
             },
             {
-                "alias": "Respondent type",
+                "alias": "Type Of Respondent",
                 "propName": "respondent_type"
             },
             {
-                "alias": "Petition result",
+                "alias": "Disposition",
                 "propName": "petition_result"
             }
         ]

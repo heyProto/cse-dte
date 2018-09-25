@@ -10,7 +10,7 @@ class ListCards extends React.Component {
 
     let stateVar = {
       no_of_cards: 28,
-      cardsInRow: window.innerWidth <= 500 ? 1 : 4,
+      cardsInRow: window.innerWidth <= 500 ? 1 : 3,
       cardsVisible: this.props.dataJSON.slice(0, 28)
     };
 
@@ -33,8 +33,8 @@ class ListCards extends React.Component {
     })
   }
 
-  getCardStatus(card) {
-    switch(card.status) {
+  getCardStatus(status) {
+    switch(status) {
       case "Cancelled": return "proto-card-status-cancel";
       case "Ongoing": return "proto-card-status-ongoing";
       case "Done": return "proto-card-status-done";
@@ -57,11 +57,13 @@ class ListCards extends React.Component {
               data-iframe_url={card.iframe_url}
               >
               <div className="proto-card-content" >
-                <div className="proto-card-date">{card.date? formatDate(card.date) : "Date: Unknown"}</div>
-                <div className="proto-card-status"><div className={`proto-card-status-button ${this.getCardStatus(card)}`} /></div>
-                <div className="proto-card-location">{card.title}</div>
+                <div className="proto-card-tag">
+                <div className={`proto-card-status ${this.getCardStatus(card.status)}`} />
+                  <div className="proto-card-date">{card.date? formatDate(card.date) : "Date: Unknown"}</div>
+                </div>
+                <div className="proto-card-title">{card.title.length <= 150? card.title : card.title.replace(/^(.{150}[^\s]*).*/, "$1 ...")}</div>
                 <div className="proto-context-div">
-                  <div className="proto-context-title">SUBJECT</div>
+                  <div className="proto-context-title">Subject :</div>
                   <div className="proto-context">{card.subject? card.subject: "Unknown"}</div>
                 </div>
               </div>
