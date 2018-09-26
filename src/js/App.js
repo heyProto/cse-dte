@@ -369,7 +369,7 @@ class App extends React.Component {
               </div>
               {
                 ProtoGraph.page.summary &&
-                  <div className="summary-text">Our aim is to gather evidence regarding the nature, extent and gravity of religion-based hate violence, through rigorous methods and standards.</div>
+                  <div className="summary-text">{ProtoGraph.page.summary}</div>
               }
             </div>
             <Filter
