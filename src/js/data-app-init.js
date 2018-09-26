@@ -5,7 +5,7 @@ ProtoGraph.initDataApp = function () {
 
     x.init({
         selector: document.querySelector('#card-list-div'),
-        dataURL: 'https://dte.pro.to/71c94a440fefda7b48778f70/index.json',//streams.Grid.url,//
+        dataURL: streams.Grid.url,//
         topoURL: './india-topo.json',//'https://p.factchecker.in/data/india-topo.json',//
         chartOptions: {
             height: 700,
@@ -37,7 +37,7 @@ ProtoGraph.initDataApp = function () {
             {
                 "alias": "Location",
                 "propName": "location"
-            },            
+            },
             {
                 "alias": "Court Involved",
                 "propName": "court_involved"
