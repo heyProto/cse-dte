@@ -28,7 +28,6 @@ ProtoGraph.Card.toMaps.prototype.renderLaptop = function () {
     ReactDOM.render(
         <App
             dataURL={this.options.dataURL}
-            topoURL={this.options.topoURL}
             chartOptions={this.options.chartOptions}
             mode={mode}
             dimensionWidth={dimension.width}

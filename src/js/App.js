@@ -33,8 +33,7 @@ class App extends React.Component {
   componentDidMount() {
     const { dataURL, topoURL, filterConfigsURL } = this.props;
     axios.all([
-      axios.get(dataURL),
-      axios.get(topoURL)
+      axios.get(dataURL)
     ]).then(axios.spread((card, topo) => {
         let data,
           filters,
@@ -133,9 +132,9 @@ class App extends React.Component {
         if (!obj[currentKey]) {
           obj[currentKey] = [];
         }
-        
-        if(group[keyValue[i]]) { 
-          obj[currentKey].push(...group[keyValue[i]]); 
+
+        if(group[keyValue[i]]) {
+          obj[currentKey].push(...group[keyValue[i]]);
         }
       //  else {
       //   if (group[currentKey] === undefined){
@@ -194,7 +193,7 @@ class App extends React.Component {
 
   sortObject(obj, filter) {
     var arr = [],nai,na;
-    
+
     for (var prop in obj) {
       if (obj.hasOwnProperty(prop)) {
         arr.push({
@@ -213,7 +212,7 @@ class App extends React.Component {
       	});
     }
     else {	//sort by count
-    	arr.sort((a, b) => { 
+    	arr.sort((a, b) => {
 	    	let key1 = a.count,
 		        key2 = b.count;
 		      return key2 - key1;
@@ -388,7 +387,7 @@ class App extends React.Component {
                 {/* <div className="single-tab" id='map-tab' data-href='#map-area' >MAP</div> */}
                 <div className="single-tab active-tab" id='list-tab' data-href='#list-area'>LIST</div>
               </div>
-              
+
               {/* <div className="tabs map-area" id='map-area'>
                 <div className="map-hint-text">Click on the circle to see details of the incident</div>
                 <Map
@@ -399,7 +398,7 @@ class App extends React.Component {
                   chartOptions={this.props.chartOptions}
                 />
               </div> */}
-              
+
               <div className="tabs list-area active-area" id='list-area'>
                 <List
                   dataJSON={this.state.filteredDataJSON}
