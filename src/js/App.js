@@ -13,7 +13,6 @@ class App extends React.Component {
     let state = window.location.hash.split('/')[1];
     this.state = {
       dataJSON: undefined,
-      topoJSON: {},
       category: null,
       filterJSON: [],
       filteredDataJSON: undefined,
@@ -31,10 +30,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const { dataURL, topoURL, filterConfigsURL } = this.props;
+    const { dataURL, filterConfigsURL } = this.props;
     axios.all([
       axios.get(dataURL)
-    ]).then(axios.spread((card, topo) => {
+    ]).then(axios.spread((card) => {
         let data,
           filters,
           filterJSON,
@@ -66,7 +65,6 @@ class App extends React.Component {
         this.setState({
           dataJSON: data,
           filteredDataJSON: data,
-          topoJSON: topo.data,
           filterJSON: filterJSON,
           keyValue: keyValue
         }, (e) => {
@@ -383,22 +381,6 @@ class App extends React.Component {
             />
           </div>
           <div className="proto-col col-12 protograph-app-map-and-list">
-              <div className="tabs-area">
-                {/* <div className="single-tab" id='map-tab' data-href='#map-area' >MAP</div> */}
-                <div className="single-tab active-tab" id='list-tab' data-href='#list-area'>LIST</div>
-              </div>
-
-              {/* <div className="tabs map-area" id='map-area'>
-                <div className="map-hint-text">Click on the circle to see details of the incident</div>
-                <Map
-                  dataJSON={this.state.filteredDataJSON}
-                  topoJSON={this.state.topoJSON}
-                  showModal={this.showModal}
-                  mode={this.props.mode}
-                  chartOptions={this.props.chartOptions}
-                />
-              </div> */}
-
               <div className="tabs list-area active-area" id='list-area'>
                 <List
                   dataJSON={this.state.filteredDataJSON}

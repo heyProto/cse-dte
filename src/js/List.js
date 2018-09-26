@@ -10,9 +10,9 @@ class ListCards extends React.Component {
     super(props);
 
     let stateVar = {
-      no_of_cards: 28,
+      no_of_cards: 30,
       cardsInRow: window.innerWidth <= 500 ? 1 : 3,
-      cardsVisible: this.props.dataJSON.slice(0, 28)
+      cardsVisible: this.props.dataJSON.slice(0, 30)
     };
 
     this.state = stateVar;
@@ -54,7 +54,7 @@ class ListCards extends React.Component {
               id={`protograph-grid-card-${card.state}-${card.date}`}
               onClick={this.props.showModal}
               data-viewcast_id={card.view_cast_id}
-              className={`protograph-grid-card protograph-trigger-modal ${class_name}`} 
+              className={`protograph-grid-card protograph-trigger-modal ${class_name}`}
               data-iframe_url={card.iframe_url}
               >
               <div className="proto-card-content" >
